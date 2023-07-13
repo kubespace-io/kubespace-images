@@ -29,18 +29,20 @@ jobs:
 
       - name: Read version from file
         id: version
-        run: echo "::set-output name=VERSION::$(cat version.txt)"
+        run: echo "::set-output name=VERSION::$(cat ./base-images/ubuntu/version.txt)"
 
       - name: Build and push Docker image
         env:
           IMAGE_TAG: ${{ steps.version.outputs.VERSION }}
           IMAGE_ARG: 'ubuntu:latest'
+          IMAGE_REF: kubespace/ubuntu:${IMAGE_TAG}
+          IMAGE_LAST: kubespace/ubuntu:latest
         run: |
-          docker build -t kubespace/ubuntu:${IMAGE_TAG} --build-arg IMAGE_ARG=${IMAGE_ARG} .
-          docker push kubespace/ubuntu:${IMAGE_TAG}
+          docker build -t ${IMAGE_REF} --build-arg IMAGE_ARG=${IMAGE_ARG} .
+          docker push ${IMAGE_REF}
 
       - name: Update latest tag
         run: |
-          docker pull kubespace/ubuntu:${IMAGE_TAG}
-          docker tag kubespace/ubuntu:${IMAGE_TAG} kubespace/ubuntu:latest
-          docker push kubespace/ubuntu:latest
+          docker pull ${IMAGE_REF}
+          docker tag ${IMAGE_REF} ${IMAGE_LAST}
+          docker push ${IMAGE_LAST}

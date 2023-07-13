@@ -34,8 +34,9 @@ jobs:
       - name: Build and push Docker image
         env:
           IMAGE_TAG: ${{ steps.version.outputs.VERSION }}
+          IMAGE_ARG: 'ubuntu:latest'
         run: |
-          docker build -t kubespace/ubuntu:${IMAGE_TAG} .
+          docker build -t kubespace/ubuntu:${IMAGE_TAG} --build-arg IMAGE_ARG=${IMAGE_ARG} .
           docker push kubespace/ubuntu:${IMAGE_TAG}
 
       - name: Update latest tag
@@ -43,4 +44,3 @@ jobs:
           docker pull kubespace/ubuntu:${IMAGE_TAG}
           docker tag kubespace/ubuntu:${IMAGE_TAG} kubespace/ubuntu:latest
           docker push kubespace/ubuntu:latest
-

@@ -1,5 +1,6 @@
 # Start from the lightweight latest Ubuntu image
-FROM ubuntu:latest
+ARG IMAGE
+FROM ${IMAGE}
 
 # Switch to root user for system updates
 USER root
@@ -16,7 +17,7 @@ RUN apt-get update && \
 # Set environment variables
 ENV LANG en_US.utf8
 
-# Install basic libraries, curl, and wget
+# Install basic libraries
 RUN apt-get update && \
     apt-get install -y curl wget && \
     apt-get autoremove -y && \

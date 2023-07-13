@@ -5,7 +5,7 @@ FROM ${IMAGE}
 # Switch to root user for system updates
 USER root
 
-# Install locales and tzdata
+# Install locales
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y locales tzdata && \

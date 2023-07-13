@@ -3,6 +3,7 @@
         "image-build",
         "image-components",
         "image-dockerfile",
-        "update-README"
+        "update-README",
+        "image-version"
     ]
 }

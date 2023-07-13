@@ -27,9 +27,7 @@ RUN apt-get update && \
 # Create a non-root user
 RUN useradd -m -s /bin/bash kube
 
-# Switch to the 'kube' user
 USER kube
-
 # Set the working directory to the 'kube' user's home directory
 WORKDIR /home/kube
 

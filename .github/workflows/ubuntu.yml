@@ -41,9 +41,5 @@ jobs:
         run: |
           docker build -t ${{ env.IMAGE_REF }} --build-arg IMAGE=${{ env.IMAGE_ARG }} -f ${{ env.DOCKERFILE_PATH }} .
           docker push ${{ env.IMAGE_REF }}
-
-      - name: Update latest tag
-        run: |
-          docker pull ${{ env.IMAGE_REF }}
           docker tag ${{ env.IMAGE_REF }} ${{ env.IMAGE_LAST }}
           docker push ${{ env.IMAGE_LAST }}

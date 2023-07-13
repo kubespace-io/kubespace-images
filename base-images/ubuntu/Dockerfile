@@ -1,6 +1,4 @@
-# Start from the lightweight latest Ubuntu image
 ARG IMAGE
-
 FROM ${IMAGE}
 
 # Switch to root user for system updates

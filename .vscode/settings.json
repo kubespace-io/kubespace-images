@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "image-build"
+        "image-build",
+        "image-components"
     ]
 }

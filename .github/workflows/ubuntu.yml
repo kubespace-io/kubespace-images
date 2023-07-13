@@ -31,14 +31,15 @@ jobs:
         id: version
         run: echo "::set-output name=VERSION::$(cat ./base-images/ubuntu/version.txt)"
 
-      - name: Build and push Docker image
+      - name: Build and push Docker image'
         env:
+          DOCKERFILE_PATH: base-images/ubuntu/Dockerfile
           IMAGE_TAG: ${{ steps.version.outputs.VERSION }}
-          IMAGE_ARG: 'ubuntu:latest'
+          IMAGE_ARG: ubuntu:latest
           IMAGE_REF: kubespace/ubuntu:${{ steps.version.outputs.VERSION }}
           IMAGE_LAST: kubespace/ubuntu:latest
         run: |
-          docker build -t ${{ env.IMAGE_REF }} --build-arg IMAGE_ARG=${{ env.IMAGE_ARG }} .
+          docker build -t ${{ env.IMAGE_REF }} --build-arg IMAGE_ARG=${{ env.IMAGE_ARG }} -f ${{ env.DOCKERFILE_PATH }} .
           docker push ${{ env.IMAGE_REF }}
 
       - name: Update latest tag

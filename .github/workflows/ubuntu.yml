@@ -31,7 +31,7 @@ jobs:
         id: version
         run: echo "VERSION=$(cat ./base-images/ubuntu/version.txt)" >> $GITHUB_ENV
 
-      - name: Build and push Docker image'
+      - name: Build and push Docker image
         env:
           DOCKERFILE_PATH: base-images/ubuntu/Dockerfile
           IMAGE_TAG: ${{ steps.version.outputs.VERSION }}

@@ -1,0 +1,1 @@
+docker build -t debian-testu -f base-images/ubuntu/Dockerfile --build-arg IMAGE=debian:latest .

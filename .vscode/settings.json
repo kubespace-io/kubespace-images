@@ -1,0 +1,9 @@
+{
+    "conventionalCommits.scopes": [
+        "image-build",
+        "image-components",
+        "image-dockerfile",
+        "update-README",
+        "image-version"
+    ]
+}

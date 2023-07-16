@@ -3,8 +3,8 @@ name: debian-base
 on:
   push:
     branches:
-      # - 'main'
-      - 'test-packages'
+      - 'main'
+      # - 'test-packages'
     paths:
       - "base-images/debian/**"
       - "!base-images/debian/README.md"

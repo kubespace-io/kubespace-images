@@ -3,8 +3,8 @@ name: ubuntu-base
 on:
   push:
     branches:
-      # - 'main'
-      - 'test-packages'
+      - 'main'
+      # - 'test-packages'
     paths:
       - "base-images/ubuntu/**"
       - "!base-images/ubuntu/README.md"

@@ -3,8 +3,8 @@ name: jupyter-devops
 on:
   push:
     branches:
-      # - 'main'
-      - 'test-packages'
+      - 'main'
+      # - 'test-packages'
     paths:
       - "jupyter/devops/**"
       - "!jupyter/devops/README.md"

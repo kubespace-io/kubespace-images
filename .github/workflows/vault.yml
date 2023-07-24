@@ -3,8 +3,8 @@ name: vault
 on:
   push:
     branches:
-      # - 'main'
-      - 'test-packages'
+      - 'main'
+      # - 'test-packages'
     paths:
       - "vault/**"
       - "!vault/README.md"
